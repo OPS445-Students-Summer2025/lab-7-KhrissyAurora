@@ -13,6 +13,21 @@ class Time :
         self . minute  =  minute
         self . second  =  second
 
+    def __str__ ( self ) :
+        '''return a string representation for the object self'''
+        return f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
+
+    def __repr__ ( self ) :
+        '''return a string representation for the object self
+        just instead of ':', you are required use the '.' in the formatting string.'''
+        return f'{self.hour:02d}.{self.minute:02d}.{self.second:02d}'
+
+    def __add__ ( self ,  t2 ) :
+        """return the result by using sum_times() method"""
+        # This method overloads the '+' operator.
+        # It calls the existing sum_times method to perform the addition.
+        return self.sum_times(t2) # [1]
+
     def format_time ( self ) :
         """Return time object (t) as a formatted string"""
         return f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
@@ -26,14 +41,14 @@ class Time :
     def sum_times ( self ,  t2 ) :
         """Add two time objects and return the sum using time_to_sec and sec_to_time."""
         # Convert both time objects to seconds, add them, and convert back
-        sec1 = self.time_to_sec() # self represents the first Time object
-        sec2 = t2.time_to_sec()   # t2 represents the second Time object
+        sec1 = self.time_to_sec()
+        sec2 = t2.time_to_sec()
         total_seconds = sec1 + sec2
 
         # Ensure the total seconds wrap around a 24-hour cycle (86400 seconds in a day)
         total_seconds %= (24 * 60 * 60) # 86400 seconds in a day
 
-        return sec_to_time(total_seconds) # sec_to_time remains an external function
+        return sec_to_time(total_seconds)
 
     def change_time ( self ,  seconds ) :
         """
@@ -55,7 +70,7 @@ class Time :
             return False
         return True
 
-# This function remains outside the class block as per the instructions [3]
+# This function remains outside the class block as per the instructions
 def sec_to_time ( seconds ) :
     '''convert a given number of seconds to a time object in hour,minute,second format'''
     time  =  Time ( )

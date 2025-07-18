@@ -1,0 +1,16 @@
+lab7a1
+08:00:00 + 00:50:00 --> 08:50:00
+08:55:00 + 00:50:00 --> 09:45:00
+09:50:00 + 00:50:00 --> 10:40:00
+
+lab7c1
+08:00:00 + 00:50:00 --> 08:50:00
+08:55:00 + 00:50:00 --> 09:45:00
+09:50:00 + 1800 sec --> 10:20:00
+
+lab7i
+print() in main on schoolName: Seneca
+print() in function1 on schoolName: SICT
+print() in main on schoolName: SICT
+print() in function2 on schoolName: SSDO
+print() in main on schoolName: SSDO
